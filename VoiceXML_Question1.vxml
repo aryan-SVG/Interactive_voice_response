@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<vxml version="2.0">
+<form id="question1">
+    <field name="answer">
+      <grammar type="application/x-jsgf" mode="voice">
+        yes|no
+      </grammar>
+      <prompt>Question a:Is k-means clustering is an NP-hard problem.?</prompt>
+      <filled>
+        <if cond="answer=='yes'">
+        <elseif cond="answer=='no'"/>
+          
+          <prompt>Correct, k-means is linear to the number of instances and clusters; instead, the original partitional clustering problem is NP-hard.
+
+</prompt>
+          <goto next="#question2"/>
+        </if>
+      </filled>
+    </field>
+    <field name="retry">
+      <grammar type="application/x-jsgf" mode="voice">
+        yes|no
+      </grammar>
+      <prompt>Incorrect, would you like to try again?</prompt>
+      <filled>
+        <if cond="retry=='yes'">
+          <goto next="#question1"/>
+        <elseif cond="retry=='no'"/>
+          <goto next="#question2"/>
+        </if>
+      </filled>
+    </field>
+  </form>
+<form id="question2">
+    <field name="answer">
+      <grammar type="application/x-jsgf" mode="voice">
+        yes|no
+      </grammar>
+      <prompt>Question b: To make it computationally feasible, Naive Bayes assumes that features are independent from each other?</prompt>
+      <filled>
+        <if cond="answer=='yes'">    
+        <elseif cond="answer=='no'"/>      
+          <prompt>Correct,Naïve Bayes only assumes conditional independence.</prompt>
+          <goto next="#question3"/>       
+        </if>
+      </filled>
+    </field>
+    <field name="retry">
+      <grammar type="application/x-jsgf" mode="voice">
+        yes|no
+      </grammar>
+      <prompt>Incorrect, would you like to try again?</prompt>
+      <filled>
+        <if cond="retry=='yes'">
+          <goto next="#question2"/>
+        <elseif cond="retry=='no'"/>
+          <goto next="#question3"/>
+        </if>
+      </filled>
+    </field>
+  </form>
+<form id="question3">
+    <field name="answer">
+      <grammar type="application/x-jsgf" mode="voice">
+        yes|no
+      </grammar>
+      <prompt>Question c: The production rules of Context Free Grammar (CFG) should be in Chomsky Normal Form (CNF)?</prompt>
+      <filled>
+        <if cond="answer=='yes'">   
+        <elseif cond="answer=='no'"/> 
+          <prompt>Correct,The grammar of CFG is need not be in Chomsky normal form.
+Production rules of CFG can have a combination of non-terminal and terminal symbols on the right-hand side. In CNF, a rule can have only one terminal on its RHS (no other symbols) or two non-terminals on it RHS.
+</prompt>
+          <goto next="#question4"/>
+        </if>
+      </filled>
+    </field>
+    <field name="retry">
+      <grammar type="application/x-jsgf" mode="voice">
+        yes|no
+      </grammar>
+      <prompt>Incorrect, would you like to try again?</prompt>
+      <filled>
+        <if cond="retry=='yes'">
+          <goto next="#question3"/>
+        <elseif cond="retry=='no'"/>
+          <goto next="#question4"/>
+        </if>
+      </filled>
+    </field>
+  </form>
+<form id="question4">
+    <field name="answer">
+      <grammar type="application/x-jsgf" mode="voice">
+        yes|no
+      </grammar>
+      <prompt>Question d: Is NLTK a Python Library for NLP</prompt>
+      <filled>
+        <if cond="answer=='no'">
+        <elseif cond="answer=='yes'"/>
+          <prompt>Correct</prompt>
+          <goto next="#question5"/>
+        </if>
+      </filled>
+    </field>
+    <field name="retry">
+      <grammar type="application/x-jsgf" mode="voice">
+        yes|no
+      </grammar>
+      <prompt>Incorrect, would you like to try again?</prompt>
+      <filled>
+        <if cond="retry=='yes'">
+          <goto next="#question4"/>
+        <elseif cond="retry=='no'"/>
+          <goto next="#question5"/>
+        </if>
+      </filled>
+    </field>
+  </form>
+<form id="question5">
+    <field name="answer">
+      <grammar type="application/x-jsgf" mode="voice">
+        yes|no
+      </grammar>
+      <prompt>Question e: Is Penn Tree bank used in POS tagging ?</prompt>
+      <filled>
+        <if cond="answer=='no'">
+        <elseif cond="answer=='yes'"/>
+          <prompt>Correct</prompt>
+          <disconnect/>
+        </if>
+      </filled>
+    </field>
+    <field name="retry">
+      <grammar type="application/x-jsgf" mode="voice">
+        yes|no
+      </grammar>
+      <prompt>Incorrect, would you like to try again?</prompt>
+      <filled>
+        <if cond="retry=='yes'">
+          <goto next="#question5"/>
+        <elseif cond="retry=='no'"/>
+          <disconnect/>
+        </if>
+      </filled>
+    </field>
+  </form>
+</vxml>
